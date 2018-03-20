@@ -27,24 +27,5 @@ module.exports = {
       return database("purgatory")
       .delete()
       .where("id", id);
-    },
-    signedup(sessionID) {
-    return database('players')
-      .join('purgatory', 'players.id', '=', 'purgatory.players_id')
-      .join('session', 'session.id', '=', 'purgatory.session_id')
-      .select('players.players_name')
-      .where('session.id', sessionID)
-  },
-  getJoinedData() {
-    return database('purgatory')
-      .join('purgatory', 'session.id', '=', 'purgatory.session_id')
-      .join('players', 'players.id', '=', 'purgatory.players_id')
-  },
-  getPlayerId(id) {
-    return getJoinedData().where('players_id', id)
-  },
-
-  testJoin(table) {
-    console.log('Sql string:', getJoinedData().toSQL())
-  }
+    }
 };

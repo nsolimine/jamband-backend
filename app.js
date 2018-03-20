@@ -112,8 +112,6 @@ app.put("/purgatory/:id", (request, response) => {
     }).catch(console.error);
 });
 
-
-
 app.use((request, response) => {
   response.send(404);
 });
