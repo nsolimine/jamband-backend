@@ -2,7 +2,6 @@
 exports.seed = function(knex, Promise) {
   return knex('purgatory').del()
     .then(function () {
-      // Inserts seed entries
       return knex('purgatory').insert([{
         id: 1,
         players_id: 1,

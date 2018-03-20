@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const playersQueries = require("./playersQueries");
 const sessionQueries = require("./sessionQueries");
-
+const purgatoryQueries = require("./purgatoryQueries");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
@@ -11,6 +11,7 @@ app.use(bodyParser.urlencoded({ extended: false}));
 app.use(cors());
 
 
+//Players//
 app.get("/players", (request, response) => {
     playersQueries.list().then(players => {
         response.json({players});
@@ -44,7 +45,7 @@ app.put("/players/:id", (request, response) => {
 });
 
 
-
+//Session//
 app.get("/session", (request, response) => {
     sessionQueries.list().then(session => {
         response.json({session});

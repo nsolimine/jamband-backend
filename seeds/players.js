@@ -4,109 +4,133 @@ exports.seed = function(knex, Promise) {
     .then(function () {
       return knex('players').insert([{
         id: 1,
-        name: 'George Harrison',
+        name: 'George McCartney',
         instrument: 'Guitar',
         sing: 'Yes',
-        friends: 'Paul McCartney, John Lennon, Ringo Starr'
+        friends: 'Paul Lennon, John Starr, Ringo Harrison'
       },{
         id: 2,
-        name: 'Paul McCartney',
+        name: 'Paul Lennon',
         instrument: 'Bass',
         sing: 'Yes',
-        friends: 'George Harrison, John Lennon, Ringo Starr'
+        friends: 'George McCartney, John Starr, Ringo Harrison'
       },{
         id: 3,
-        name: 'John Lennon',
+        name: 'John Starr',
         instrument: 'Guitar',
         sing: 'Yes',
-        friends: 'George Harrison, Paul McCartney, Ringo Starr'
+        friends: 'George McCartney, Paul Lennon, Ringo Harrison'
       },{
         id: 4,
-        name: 'Ringo Starr',
+        name: 'Ringo Harrison',
         instrument: 'Drums',
         sing: 'Yes',
-        friends: 'George Harrison, Paul McCartney, John Lennon'
+        friends: 'George McCartney, Paul Lennon, John Starr'
       },{
         id: 5,
-        name: 'Robert Plant',
+        name: 'Robert Page',
         instrument: 'Vocals',
         sing: 'Yes',
-        friends: 'Jimmy Page, John Paul Jones, John Bonham'
+        friends: 'Jimmy Plant, John Paul Bonham, John Jones'
       },{
         id: 6,
-        name: 'Jimmy Page',
+        name: 'Jimmy Plant',
         instrument: 'Guitar',
         sing: 'No',
-        friends: 'Robert Plant, John Paul Jones, John Bonham'
+        friends: 'Robert Page, John Paul Bonham, John Jones'
       },{
         id: 7,
-        name: 'John Paul Jones',
+        name: 'John Paul Bonham',
         instrument: 'Bass, Mandolin, Hammond',
         sing: 'No',
-        friends: 'Robert Plant, Jimmy Page, John Bonham'
+        friends: 'Robert Page, Jimmy Plant, John Jones'
       },{
         id: 8,
-        name: 'John Bonham',
+        name: 'John Jones',
         instrument: 'Drums',
         sing: 'No',
-        friends: 'Robert Plant, Jimmy Page, John Paul Jones'
+        friends: 'Robert Page, Jimmy Plant, John Paul Bonham'
       },{
         id: 9,
-        name: 'Thom Yorke',
+        name: 'Thom Greenwood',
         instrument: 'Vocals, Guitar',
         sing: 'Yes',
-        friends: "Johnny Greenwood, Colin Greenwood, Ed O'Brien, Philip Selway"
+        friends: "Johnny Yorke, Colin O'Brien, Ed Selway, Philip Greenwood"
       },{
         id: 10,
-        name: 'Jonny Greenwood',
+        name: 'Johnny Yorke',
         instrument: 'Guitar, Ondes Martenot',
         sing: 'No',
-        friends: "Thom Yorke, Colin Greenwood, Ed O'Brien, Philip Selway"
+        friends: "Thom Greenwood, Colin O'Brien, Ed Selway, Philip Greenwood"
       },{
         id: 11,
-        name: 'Colin Greenwood',
+        name: "Colin O'Brien",
         instrument: 'Bass',
         sing: 'No',
-        friends: "Thom Yorke, Johnny Greenwood, Ed O'Brien, Philip Selway"
+        friends: "Thom Greenwood, Johnny Yorke, Ed Selway, Philip Greenwood"
       },{
         id: 12,
-        name: "Ed O'Brien",
+        name: "Ed Selway",
         instrument: 'Guitar',
         sing: 'Yes',
-        friends: 'Thom Yorke, Johnny Greenwood, Colin Greenwood, Philip Selway'
+        friends: "Thom Greenwood, Johnny Yorke, Colin O'Brien, Philip Greenwood"
       },{
         id: 13,
-        name: 'Philip Selway',
+        name: 'Philip Greenwood',
         instrument: 'Drums',
         sing: 'No',
-        friends: "Thom Yorke, Johnny Greenwood, Colin Greenwood, Ed O'Brien"
+        friends: "Thom Greenwood, Johnny Yorke, Colin O'Brien, Ed Selway"
       },{
         id: 14,
-        name: 'Ozzy Osbourne',
+        name: 'Ozzy Iommi',
         instrument: 'Vocals',
         sing: 'Yes',
-        friends: 'Tony Iommi, Geezer Butler, Bill Ward'
+        friends: 'Tony Butler, Geezer Ward, Bill Osbourne'
       },{
         id: 15,
-        name: 'Tony Iommi',
+        name: 'Tony Butler',
         instrument: 'Guitar',
         sing: 'No',
-        friends: 'Ozzy Osbourne, Geezer Butler, Bill Ward'
+        friends: 'Ozzy Iommi, Geezer Ward, Bill Osbourne'
       },{
         id: 16,
-        name: 'Geezer Butler',
+        name: 'Geezer Ward',
         instrument: 'Bass',
         sing: 'No',
-        friends: 'Ozzy Osbourne, Tony Iommi, Bill Ward'
+        friends: 'Ozzy Iommi, Tony Butler, Bill Osbourne'
       },{
         id: 17,
-        name: 'Bill Ward',
+        name: 'Bill Osbourne',
         instrument: 'Drums',
         sing: 'No',
-        friends: 'Ozzy Osbourne, Tony Iommi, Geezer Butler'
+        friends: 'Ozzy Iommi, Tony Butler, Geezer Ward'
+      },{
+        id: 18,
+        name: 'House Band Vocalist',
+        instrument: 'Vocals',
+        sing: 'Yes',
+        friends: ''
+      },{
+        id: 19,
+        name: 'House Band Guitar Player',
+        instrument: 'Guitar',
+        sing: 'Yes',
+        friends: ''
+      },{
+        id: 20,
+        name: 'House Band Bass Player',
+        instrument: 'Bass',
+        sing: 'Yes',
+        friends: ''
+      },{
+        id: 21,
+        name: 'House Band Drummer',
+        instrument: 'Drums',
+        sing: 'Yes',
+        friends: ''
       }]);
     })
     .then(() => {
-      return knex.raw('ALTER SEQUENCE players_id_seq RESTART WITH 18;');
+      return knex.raw('ALTER SEQUENCE players_id_seq RESTART WITH 22;');
     });
 };
