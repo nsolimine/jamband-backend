@@ -79,6 +79,41 @@ app.put("/session/:id", (request, response) => {
 });
 
 
+//Purgatory//
+app.get("/purgatory", (request, response) => {
+    purgatoryQueries.list().then(purgatory => {
+        response.json({purgatory});
+    }).catch(console.error);
+});
+
+app.get("/purgatory/:id", (request, response) => {
+    purgatoryQueries.read(request.params.id).then(purgatory => {
+        purgatory
+            ? response.json({purgatory})
+            : response.sendStatus(404)
+    }).catch(console.error);
+});
+
+app.post("/purgatory", (request, response) => {
+    purgatoryQueries.create(request.body).then(purgatory => {
+        response.status(201).json({purgatory: purgatory});
+    }).catch(console.error);
+});
+
+app.delete("/purgatory/:id", (request, response) => {
+    purgatoryQueries.delete(request.params.id).then(() => {
+        response.sendStatus(204);
+    }).catch(console.error);
+});
+
+app.put("/purgatory/:id", (request, response) => {
+    purgatoryQueries.update(request.params.id, request.body).then(purgatory => {
+        response.json({purgatory: purgatory[0]});
+    }).catch(console.error);
+});
+
+
+
 app.use((request, response) => {
   response.send(404);
 });
