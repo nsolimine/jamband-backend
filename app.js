@@ -11,6 +11,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(cors());
 
+
 app.get('/', function(req, res, next) {
   console.log("got it!");
   playersQueries.join()
@@ -18,6 +19,8 @@ app.get('/', function(req, res, next) {
       res.json(data)
     })
 })
+
+
 //Players//
 app.get("/players", (request, response) => {
     playersQueries.list().then(players => {
@@ -118,6 +121,7 @@ app.put("/purgatory/:id", (request, response) => {
         response.json({purgatory: purgatory[0]});
     }).catch(console.error);
 });
+
 
 app.use((request, response) => {
   response.send(404);

@@ -33,6 +33,5 @@ module.exports = {
       .select()
       .innerJoin('purgatory', 'players.id', 'purgatory.players_id')
       .innerJoin('session', 'session.id', 'purgatory.session_id')
-      // .where('players_id' = 'purgatory.play')
-    }
+  }
 };
