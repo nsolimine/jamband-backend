@@ -27,5 +27,12 @@ module.exports = {
       return database("players")
       .delete()
       .where("id", id);
+    },
+    join(){
+      return database('players')
+      .select()
+      .innerJoin('purgatory', 'players.id', 'purgatory.players_id')
+      .innerJoin('session', 'session.id', 'purgatory.session_id')
+      // .where('players_id' = 'purgatory.play')
     }
 };

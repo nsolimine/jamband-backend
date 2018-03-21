@@ -5,13 +5,19 @@ const sessionQueries = require("./sessionQueries");
 const purgatoryQueries = require("./purgatoryQueries");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const routes = require('./routes/route.js'); 
+const routes = require('./routes/route.js');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(cors());
 
-
+app.get('/', function(req, res, next) {
+  console.log("got it!");
+  playersQueries.join()
+  .then(function(data){
+      res.json(data)
+    })
+})
 //Players//
 app.get("/players", (request, response) => {
     playersQueries.list().then(players => {
