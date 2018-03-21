@@ -5,6 +5,7 @@ const sessionQueries = require("./sessionQueries");
 const purgatoryQueries = require("./purgatoryQueries");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const routes = require('./routes/route.js'); 
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
