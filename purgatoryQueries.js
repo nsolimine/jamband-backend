@@ -27,5 +27,11 @@ module.exports = {
       return database("purgatory")
       .delete()
       .where("id", id);
+    },
+    joinPlayersByGroupId(id) {
+      return database('purgatory')
+      .select()
+      .leftJoin('players', 'purgatory.players_id', 'players.id')
+      .where('purgatory.session_id', '=', id)
     }
 };

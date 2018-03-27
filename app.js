@@ -58,7 +58,14 @@ app.put("/players/:id", (request, response) => {
 //Session//
 app.get("/session", (request, response) => {
     sessionQueries.list().then(session => {
-        response.json({session});
+      var playerCard = session.map(group => {
+        return purgatoryQueries.joinPlayersByGroupId(group.id)
+        .then(response => {
+          group.players = response
+          return group
+        })
+      })
+      Promise.all(playerCard).then(res => response.json({res}))
     }).catch(console.error);
 });
 
