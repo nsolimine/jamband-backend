@@ -24,7 +24,14 @@ app.get('/', function(req, res, next) {
 //Players//
 app.get("/players", (request, response) => {
     playersQueries.list().then(players => {
-        response.json({players});
+      var sessionCard = players.map(player => {
+        return playersQueries.getGroupsByPlayerId(player.id)
+        .then(response => {
+          player.session = response
+          return player
+        })
+      })
+      Promise.all(sessionCard).then(players => response.json({players}))
     }).catch(console.error);
 });
 

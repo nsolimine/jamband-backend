@@ -33,5 +33,11 @@ module.exports = {
       .select()
       .innerJoin('purgatory', 'players.id', 'purgatory.players_id')
       .innerJoin('session', 'session.id', 'purgatory.session_id')
-  }
+    },
+    getGroupsByPlayerId(id){
+      return database('purgatory')
+      .select()
+      .leftJoin('session', 'purgatory.session_id', 'session.id')
+      .where('purgatory.players_id', '=', id)
+    }
 };
